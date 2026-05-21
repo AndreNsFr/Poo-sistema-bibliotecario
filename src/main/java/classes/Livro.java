@@ -6,7 +6,7 @@ public class Livro {
     private String isbn;
     private int quantidade_disponivel;
 
-    public void cadastrarLivro(
+    public Livro(
             String newTitulo,
             String newAutor,
             String newIsnb,
@@ -20,7 +20,7 @@ public class Livro {
 
     public void emprestar(){
         this.quantidade_disponivel--;
-    };
+    }
 
     public void devolver(){
         this.quantidade_disponivel++;
