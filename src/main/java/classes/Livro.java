@@ -1,4 +1,4 @@
-package Livro;
+package classes;
 
 public class Livro {
     private String titulo;
@@ -18,12 +18,12 @@ public class Livro {
         this.quantidade_disponivel = newQuantidadeDisponivel;
     }
 
-    public void emprestar(int qtd){
-        this.quantidade_disponivel -= qtd;
+    public void emprestar(){
+        this.quantidade_disponivel--;
     };
 
-    public void devolver(int qtd){
-        this.quantidade_disponivel +=qtd;
+    public void devolver(){
+        this.quantidade_disponivel++;
     }
 
     public void exibirInformacoes(){
