@@ -4,16 +4,16 @@ import classes.Usuario;
 
 public class Main {
     public static void main(String[] args){
-        Livro livro = new Livro("O programador Pragmático",
+        Biblioteca biblioteca = new Biblioteca();
+        Livro livro_criado = biblioteca.adicionarLivro(
+                "O programador Pragmático",
                 "David Thomas & Andrew Hunt" ,
                 "9788582606872",
-                10);
-
-
-        Usuario usuario = new Usuario("André");
-        usuario.informacoesUsuario();
-        usuario.pegarLivro(livro);
-        usuario.listarLivros();
+                10
+        );
+        Usuario usuario_criado = biblioteca.cadastrarUsuario("André");
+        biblioteca.realizarEmprestimo(usuario_criado, livro_criado);
+        biblioteca.mostrarTudo();
 
     }
 }
