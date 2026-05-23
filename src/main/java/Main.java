@@ -13,7 +13,14 @@ public class Main {
         );
         Usuario usuario_criado = biblioteca.cadastrarUsuario("André");
         biblioteca.realizarEmprestimo(usuario_criado, livro_criado);
-        biblioteca.mostrarTudo();
+
+
+        Livro busca = biblioteca.buscarLivro("programador");
+        if(busca != null){
+            busca.exibirInformacoes();
+        }else{
+            System.out.println("Livro não encontrado :(");
+        }
 
     }
 }

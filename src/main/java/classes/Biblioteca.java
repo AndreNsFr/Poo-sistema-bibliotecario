@@ -3,6 +3,7 @@ package classes;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+
 public class Biblioteca {
 
     // verificar se o hashset é a estrutura de dados correta para a classe!
@@ -45,6 +46,21 @@ public class Biblioteca {
         for (Usuario usuario : usuarios){
             usuario.informacoesUsuario();
         }
+    }
+
+
+//    Infelizmente essa função é O(n), sendo que o hashset tem como ser 0(1), mas n sei fazer :(
+    public Livro buscarLivro(String nome){
+
+        if(!nome.isEmpty()){
+            for(Livro livro : livros){
+                if(livro.getTitulo().contains(nome)){
+                    return  livro;
+                }
+            }
+        }
+
+        return null;
     }
 
 }

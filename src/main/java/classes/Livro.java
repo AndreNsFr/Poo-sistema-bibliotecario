@@ -18,8 +18,28 @@ public class Livro {
         this.quantidade_disponivel = newQuantidadeDisponivel;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public int getQuantidade_disponivel() {
+        return quantidade_disponivel;
+    }
+
     public void emprestar(){
-        this.quantidade_disponivel--;
+
+        if(this.quantidade_disponivel > 0){
+            this.quantidade_disponivel--;
+        }
+
     }
 
     public void devolver(){
