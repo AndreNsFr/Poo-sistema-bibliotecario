@@ -8,6 +8,19 @@ public class Usuario {
     private UUID id;
     private HashSet<Livro> livrosEmprestados;
 
+
+    public String getNome() {
+        return nome;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public HashSet<Livro> getLivrosEmprestados() {
+        return livrosEmprestados;
+    }
+
     public  Usuario(String newNome){
         this.nome = newNome;
         this.id = UUID.randomUUID();
@@ -17,6 +30,7 @@ public class Usuario {
     public void informacoesUsuario(){
         System.out.println("Nome: " + this.nome);
         System.out.println("Id: " + this.id);
+        this.listarLivros();
     }
 
     public void pegarLivro(Livro livro){
