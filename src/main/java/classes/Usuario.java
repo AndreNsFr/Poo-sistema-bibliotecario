@@ -30,7 +30,9 @@ public class Usuario {
     public void informacoesUsuario(){
         System.out.println("Nome: " + this.nome);
         System.out.println("Id: " + this.id);
-        this.listarLivros();
+        if(!this.livrosEmprestados.isEmpty()){
+            this.listarLivros();
+        }
     }
 
     public void pegarLivro(Livro livro){
@@ -49,11 +51,10 @@ public class Usuario {
     }
 
     public void listarLivros(){
-        System.out.println("/////////////////////////////////////////////////////");
         System.out.println("Livros emprestados:");
 
         for (Livro livro : livrosEmprestados){
-
+            System.out.println("/////////////////////////////////////////////////////");
             livro.exibirInformacoes();
             System.out.println("/////////////////////////////////////////////////////");
 

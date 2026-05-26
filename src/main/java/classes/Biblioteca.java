@@ -1,19 +1,20 @@
 package classes;
 
+import exceptions.ValorNaoEncontrado;
+
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Scanner;
 
 
 public class Biblioteca {
 
     // verificar se o hashset é a estrutura de dados correta para a classe!
-    private HashSet<Usuario> usuarios;
-    private HashSet<Livro> livros;
+    private ArrayList<Usuario> usuarios;
+    private ArrayList<Livro> livros;
 
     public Biblioteca (){
-        this.livros = new HashSet<>();
-        this.usuarios = new HashSet<>();
+        this.livros = new ArrayList<>();
+        this.usuarios = new ArrayList<>();
     }
 
     public Livro adicionarLivro(){
@@ -34,6 +35,9 @@ public class Biblioteca {
         System.out.println("Por ultimo, a quantidade disponivel");
         int qtd_livro = scanner.nextInt();
 
+        if(nome_livro.isEmpty() || autor_livro.isEmpty() || isbn_livro.isEmpty() || qtd_livro == 0){
+            throw new NullPointerException("Falta informações, tente novamente");
+        }
 
         ////////////////////////////////////////////////////////////////
 
@@ -52,7 +56,9 @@ public class Biblioteca {
 
         System.out.println("Olá! Digite nome do usuário");
         String nome_usuario = scanner.nextLine();
-
+        if(nome_usuario.isEmpty()){
+            throw new NullPointerException("Nome em branco.");
+        }
 
         //////////////////////////////////////////////////////////////////////////////
 
@@ -91,7 +97,7 @@ public class Biblioteca {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite o nome para buscar:");
+        System.out.println("Digite o nome do livro para buscar:");
         String nome = scanner.nextLine();
 
 
@@ -106,7 +112,7 @@ public class Biblioteca {
             }
         }
 
-        return null;
+        throw new ValorNaoEncontrado("Não existe este livro");
     }
 
     public Usuario buscarUsuario(){
@@ -115,7 +121,7 @@ public class Biblioteca {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite o nome para buscar:");
+        System.out.println("Digite o nome de usuário para buscar:");
         String nome = scanner.nextLine();
 
 
@@ -129,7 +135,7 @@ public class Biblioteca {
             }
         }
 
-        return null;
+        throw new ValorNaoEncontrado("Não existe este usuário");
     }
 
 }

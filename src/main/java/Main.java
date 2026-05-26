@@ -23,40 +23,81 @@ public class Main {
             System.out.println("7 - Cadastrar emprestimo");
             System.out.println("8 - Cadastrar devolução");
             System.out.println("9 - sair");
+            System.out.println("/////////////////////////////////////////////////");
 
-            int escolha = scanner.nextInt();
+            String escolha = scanner.nextLine();
 
-            if(escolha == 1){
-                Usuario newUsr = biblioteca.cadastrarUsuario();
-                newUsr.informacoesUsuario();
-            }else if(escolha == 2){
-                Livro newLivro = biblioteca.adicionarLivro();
-                newLivro.exibirInformacoes();
-            }else if(escolha == 3){
+
+            if(escolha.equals("1")){
+                try {
+                    Usuario newUsr = biblioteca.cadastrarUsuario();
+                    newUsr.informacoesUsuario();
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+            }else if(escolha.equals("2")){
+                try {
+                    Livro newLivro = biblioteca.adicionarLivro();
+                    newLivro.exibirInformacoes();
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+            }else if(escolha.equals("3")){
+
                 biblioteca.mostrarLivro();
-            }else if(escolha == 4){
-                biblioteca.mostrarUsuarios();
-            }else if(escolha == 5){
-                Livro livro = biblioteca.buscarLivro();
-                livro.exibirInformacoes();
-            }else if(escolha == 6){
-                Usuario usuario = biblioteca.buscarUsuario();
-                usuario.informacoesUsuario();
-            }else if(escolha == 7){
-                Usuario usuario = biblioteca.buscarUsuario();
-                Livro livro = biblioteca.buscarLivro();
-                biblioteca.realizarEmprestimo(usuario,livro);
 
-            }else if(escolha == 8){
-                Usuario usuario = biblioteca.buscarUsuario();
-                Livro livro = biblioteca.buscarLivro();
-                biblioteca.realizarDevolucao(usuario,livro);
-            }else if(escolha == 9){
+            }else if(escolha.equals("4")){
+
+                biblioteca.mostrarUsuarios();
+
+            }else if(escolha.equals("5")){
+
+                try {
+                    Livro livro = biblioteca.buscarLivro();
+                    livro.exibirInformacoes();
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+
+            }else if(escolha.equals("6")){
+
+                try {
+                    Usuario usuario = biblioteca.buscarUsuario();
+                    usuario.informacoesUsuario();
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+
+            }else if(escolha.equals("7")){
+
+                try {
+                    Usuario usuario = biblioteca.buscarUsuario();
+                    Livro livro = biblioteca.buscarLivro();
+                    biblioteca.realizarEmprestimo(usuario,livro);
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+
+            }else if(escolha.equals("8")){
+
+                try {
+                    Usuario usuario = biblioteca.buscarUsuario();
+                    Livro livro = biblioteca.buscarLivro();
+                    biblioteca.realizarDevolucao(usuario,livro);
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+
+            }else if(escolha.equals("9")){
+
                 break;
+
+            }else{
+                System.out.println("Escolha inválida, tente novamente!");
             }
         }
 
         scanner.close();
-        System.out.println("Obrigado por usuar o programa!");
+        System.out.println("Obrigado por usar o programa!");
     }
 }
